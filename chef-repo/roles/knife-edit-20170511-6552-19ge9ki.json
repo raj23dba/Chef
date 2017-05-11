@@ -1,0 +1,41 @@
+{
+  "name": "my_product_name",
+  "description": "My first role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+    "template_cookbook": {
+      "sudo": {
+        "groups": [
+          "oracleadmin",
+          "oracleuser",
+          "oracledba",
+          "oraclemanager"
+        ],
+        "users": [
+          "ashish",
+          "suresh",
+          "ganesh",
+          "ramesh",
+          "sagar",
+          "nilesh",
+          "Krishna",
+          "hari",
+          "oracle"
+        ]
+      }
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[template_cookbook]",
+    "recipe[env_cookbook]"
+  ],
+  "env_run_lists": {
+    "prod": [
+      "recipe[env_cookbook]"
+    ]
+  }
+}
